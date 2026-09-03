@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PingUs - Settings</title>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <head>
+  <!-- မူလ CSS ဖိုင် -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- theme.css ကို ဒီအောက်တည့်တည့်မှာ ထပ်တိုးပါ -->
+  <link rel="stylesheet" href="css/theme.css">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { display: flex; background-color: #F8F9FA; color: #333; min-height: 100vh; }
+
+    /* Sidebar Navigation */
+    .sidebar { width: 250px; background: #FFFFFF; padding: 24px; border-right: 1px solid #EAEAEA; }
+    .logo { color: #FF5A36; font-size: 24px; font-weight: bold; margin-bottom: 32px; display: flex; align-items: center; gap: 8px; }
+    .nav-menu { list-style: none; }
+    .nav-item { margin-bottom: 8px; }
+    .nav-link { text-decoration: none; color: #6C757D; font-weight: 500; display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 8px; transition: 0.2s; }
+    .nav-link:hover, .nav-link.active { background-color: #EBF3F5; color: #000; font-weight: 600; }
+
+    /* Settings Main Area */
+    .main-content { flex: 1; padding: 40px; max-width: 750px; }
+    .page-title { font-size: 26px; font-weight: 700; margin-bottom: 24px; color: #222; }
+
+    /* Settings Card UI */
+    .settings-card { background: #FFFFFF; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 24px; }
+    .card-title { font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #333; border-bottom: 1px solid #F1F3F5; padding-bottom: 12px; }
+
+    /* Form Elements */
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; color: #495057; }
+    .form-control { width: 100%; padding: 10px 12px; border: 1px solid #CED4DA; border-radius: 8px; font-size: 14px; outline: none; transition: 0.2s; }
+    .form-control:focus { border-color: #FF5A36; }
+
+    /* Buttons */
+    .btn-save { background-color: #FF5A36; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+    .btn-save:hover { background-color: #E04826; }
+
+    /* Buttons နှင့် Logo အရောင်များ Accent Color အလိုက် ပြောင်းလဲရန် */
+    .btn-save, button, .nav-item.active {background-color: var(--accent-color) !important;}
+    .logo {color: var(--accent-color) !important;}
+
+    /* Dark Mode သီးသန့် CSS Styling */
+    body.dark {
+      background-color: #121212 !important;
+      color: #ffffff !important;
+    }
+
+    body.dark .sidebar,
+    body.dark .settings-card,
+    body.dark .form-control {
+      background-color: #1e1e1e !important;
+      color: #ffffff !important;
+      border-color: #333333 !important;
+    }
+
+    body.dark h1, 
+    body.dark h2, 
+    body.dark h3, 
+    body.dark label, 
+    body.dark .nav-link {
+      color: #ffffff !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo"><i class="fa-solid fa-location-dot"></i> PingUs</div>
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li class="nav-item"><a href="index.html#explore" class="nav-link"><i class="fa-solid fa-compass"></i> Explore</a></li>
+      <li class="nav-item"><a href="index.html#my-hangouts" class="nav-link"><i class="fa-solid fa-users"></i> My Hangouts</a></li>
+      <li class="nav-item"><a href="index.html#notifications" class="nav-link"><i class="fa-solid fa-bell"></i> Notifications</a></li>
+      <li class="nav-item"><a href="settings.html" class="nav-link active"><i class="fa-solid fa-gear"></i> Settings</a></li>
+    </ul>
+  </aside>
+
+  <!-- Content Area -->
+  <main class="main-content">
+    <h1 class="page-title">Settings</h1>
+    <!-- Appearance Section (Dark mode & Accent color) -->
+<div class="settings-card">
+  <h2 class="card-title">Appearance</h2>
+  
+  <!-- Dark Mode Toggle -->
+  <div class="form-group" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <label for="darkModeToggle" style="margin: 0; cursor: pointer;">Dark mode</label>
+    <input type="checkbox" id="darkModeToggle" style="width: 20px; height: 20px; cursor: pointer;">
+  </div>
+
+  <!-- Accent Color Options -->
+  <div class="form-group">
+    <label>Accent color</label>
+    <div class="accent-colors" style="display: flex; gap: 12px; margin-top: 8px;">
+      <span class="color-dot" data-color="#3b82f6" style="width: 26px; height: 26px; background: #3b82f6; border-radius: 50%; cursor: pointer; display: inline-block;"></span>
+      <span class="color-dot" data-color="#f97316" style="width: 26px; height: 26px; background: #f97316; border-radius: 50%; cursor: pointer; display: inline-block;"></span>
+      <span class="color-dot" data-color="#14b8a6" style="width: 26px; height: 26px; background: #14b8a6; border-radius: 50%; cursor: pointer; display: inline-block;"></span>
+      <span class="color-dot" data-color="#ec4899" style="width: 26px; height: 26px; background: #ec4899; border-radius: 50%; cursor: pointer; display: inline-block;"></span>
+    </div>
+  </div>
+</div>
+
+    <!-- Profile Settings Card -->
+    <div class="settings-card">
+      <h2 class="card-title">Profile Information</h2>
+      <form>
+        <div class="form-group">
+          <label for="username">Display Name</label>
+          <input type="text" id="username" class="form-control" value="">
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" class="form-control" value="">
+        </div>
+        <button type="button" class="btn-save">Save Changes</button>
+      </form>
+    </div>
+
+    <!-- Security Settings Card -->
+    <div class="settings-card">
+      <h2 class="card-title">Change Password</h2>
+      <form>
+        <div class="form-group">
+          <label for="current-pass">Current Password</label>
+          <input type="password" id="current-pass" class="form-control" placeholder="••••••••">
+        </div>
+        <div class="form-group">
+          <label for="new-pass">New Password</label>
+          <input type="password" id="new-pass" class="form-control" placeholder="••••••••">
+        </div>
+        <button type="button" class="btn-save">Update Password</button>
+      </form>
+    </div>
+  </main>
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/settings.js"></script> 
+  <script type="module" src="js/theme.js"></script>
+  <script>
+  // Page စဖွင့်ချိန်တွင် Saved Theme & Color များကို ဆွဲယူခြင်း
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedAccent = localStorage.getItem('accentColor') || '#3b82f6';
+    const savedTheme = localStorage.getItem('pingusTheme') || 'light';
+
+    document.documentElement.style.setProperty('--accent-color', savedAccent);
+    if (savedTheme === 'dark') document.body.classList.add('dark');
+
+    // Color Dots များကို နှိပ်သည့်အခါ အရောင်ပြောင်းခြင်း
+    const colorDots = document.querySelectorAll('.color-dot');
+    colorDots.forEach(dot => {
+      dot.addEventListener('click', function() {
+        const selectedColor = this.getAttribute('data-color');
+        document.documentElement.style.setProperty('--accent-color', selectedColor);
+        localStorage.setItem('accentColor', selectedColor);
+
+        document.querySelectorAll('.btn-save').forEach(btn => {
+          btn.style.backgroundColor = selectedColor;
+        });
+      });
+    });
+  });
+
+  // Dark Mode Toggle Function
+  function toggleDarkMode(isDark) {
+    if (isDark) {
+      document.body.classList.add('dark');
+      localStorage.setItem('pingusTheme', 'dark');
+    } else {
+      document.body.classList.remove('dark');
+      localStorage.setItem('pingusTheme', 'light');
+    }
+  }
+</script>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Sign up — PingUs</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body class="auth-body">
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-dot">•</span>Ping<span>Us</span></a>
+    <button id="themeToggle" class="round-btn">☾</button>
+  </header>
+
+  <main class="auth-layout">
+    <section class="auth-visual">
+      <p class="eyebrow">WELCOME TO PINGUS</p>
+      <h1>Find your people.<br><span>Make plans happen.</span></h1>
+      <p>Join campus hangouts, meet new people, and create memories together.</p>
+      <div class="color-stack"><i></i><i></i><i></i><i></i></div>
+    </section>
+
+    <section class="auth-card">
+      <div class="auth-tabs">
+        <button id="loginTab" class="active">Log in</button>
+        <button id="signupTab">Sign up</button>
+      </div>
+
+      <form id="authForm">
+        <div id="nameField" class="hidden">
+          <label>Display name<input id="nameInput" maxlength="40" placeholder="Your name"></label>
+        </div>
+        <label>Email<input id="emailInput" type="email" required placeholder="you@example.com"></label>
+        <label>Password<input id="passwordInput" type="password" minlength="6" required placeholder="At least 6 characters"></label>
+        <button id="authSubmit" class="primary-btn full" type="submit">Log in</button>
+        <p id="authError" class="form-error"></p>
+      </form>
+      <p class="auth-switch" id="authSwitch">Don't have an account? <button>Sign up</button></p>
+    </section>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

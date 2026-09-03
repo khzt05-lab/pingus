@@ -1,0 +1,44 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /hangouts/{hangoutId} {
+      allow read: if true;
+
+      // Only authenticated users can create, and the creator is
+      // automatically the only initial attendee.
+      allow create: if request.auth != null
+        && request.resource.data.creatorId == request.auth.uid
+        && request.resource.data.attendees.keys().hasOnly([request.auth.uid])
+        && request.resource.data.attendeeNames.keys().hasOnly([request.auth.uid]);
+
+      // Creator can edit the hangout. Other users can only change
+      // their own attendee membership and nothing else.
+      allow update: if request.auth != null && (
+        (
+          resource.data.creatorId == request.auth.uid
+          && request.resource.data.creatorId == resource.data.creatorId
+        )
+        ||
+        (
+          request.resource.data.creatorId == resource.data.creatorId
+          && request.resource.data.diff(resource.data).affectedKeys()
+               .hasOnly(['attendees', 'attendeeNames', 'updatedAt'])
+          && request.resource.data.attendees.diff(resource.data.attendees)
+               .affectedKeys().hasOnly([request.auth.uid])
+          && request.resource.data.attendeeNames.diff(resource.data.attendeeNames)
+               .affectedKeys().hasOnly([request.auth.uid])
+        )
+      );
+
+      allow delete: if request.auth != null
+        && resource.data.creatorId == request.auth.uid;
+    }
+
+    match /users/{userId} {
+      allow read: if true;
+      allow create, update: if request.auth != null && request.auth.uid == userId;
+      allow delete: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PingUs — Find your people</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+  <div id="toast" class="toast"></div>
+
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-dot">•</span>Ping<span>Us</span></a>
+    <div class="mobile-search search-box">
+      <span>⌕</span><input id="mobileSearch" placeholder="Search hangouts...">
+    </div>
+    <div class="top-actions">
+      <button id="themeToggle" class="round-btn" title="Toggle theme">☾</button>
+      <div id="authArea"></div>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <aside class="sidebar">
+      <nav class="side-nav">
+        <a class="nav-item active" href="index.html"><span>⌂</span> Home</a>
+        <a class="nav-item" href="#explore"><span>◉</span> Explore</a>
+        <a class="nav-item" href="#my-hangouts"><span>♧</span> My Hangouts</a>
+        <a class="nav-item create-link" href="create.html"><span>＋</span> Create Hangout</a>
+        <a class="nav-item" href="#notifications"><span>♧</span> Notifications</a>
+        <a class="nav-item" href="settings.html"><span>⚙️</span> Settings</a>
+      </nav>
+      <div class="sidebar-card">
+        <strong>Create your next hangout!</strong>
+        <p>Bring people together and make it happen.</p>
+        <a class="primary-btn full" href="create.html">＋ Create Hangout</a>
+        <div class="mini-art">🏖️</div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section class="welcome-row">
+        <div>
+          <p class="eyebrow">CAMPUS COMMUNITY</p>
+          <h1 id="welcomeTitle">Hello! 👋</h1>
+          <p>Find people. Do things. Make memories.</p>
+        </div>
+        <div class="desktop-search search-box">
+          <span>⌕</span><input id="searchInput" placeholder="Search hangouts...">
+        </div>
+      </section>
+
+      <section class="category-row" id="categoryBar"></section>
+
+      <section class="feed-controls">
+        <span id="resultCount" class="muted"></span>
+        <select id="sortSelect">
+          <option value="newest">Sort by: Newest</option>
+          <option value="soonest">Sort by: Soonest</option>
+          <option value="popular">Sort by: Popular</option>
+        </select>
+      </section>
+
+      <section id="hangoutGrid" class="hangout-grid"></section>
+      <section id="emptyState" class="empty-state hidden">
+        <div>👀</div>
+        <h2>No hangouts found</h2>
+        <p>Try another search or create the first hangout.</p>
+        <a class="primary-btn" href="create.html">＋ Create Hangout</a>
+      </section>
+      <section id="notificationsPanel" class="notifications-panel hidden">
+        <h2>Notifications</h2>
+        <div id="notificationsList">
+        <p>No new notifications</p>
+        </div>
+      </section>
+    </main>
+
+    <aside class="rightbar">
+      <section id="profilePanel" class="profile-card"></section>
+      <section class="right-card">
+        <div class="right-card-head"><strong>Upcoming for you</strong><a href="#my-hangouts">See all</a></div>
+        <div id="upcomingList"></div>
+      </section>
+      <section class="right-card">
+        <div class="right-card-head"><strong>Popular Categories</strong></div>
+        <div id="popularCategories"></div>
+      </section>
+    </aside>
+  </div>
+
+  <footer>© 2026 PingUs · About · Help · Terms · Privacy</footer>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/theme.js"></script>
+</body>
+</body>
+</html>

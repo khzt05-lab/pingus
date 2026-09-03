@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Hangout — PingUs</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-dot">•</span>Ping<span>Us</span></a>
+    <nav class="top-nav"><a href="index.html">Home</a><a class="active" href="create.html">Create</a></nav>
+    <div class="top-actions"><button id="themeToggle" class="round-btn">☾</button><div id="authArea"></div></div>
+  </header>
+
+  <main class="create-layout">
+    <section class="form-card">
+      <a class="back-link" href="index.html">← Back to hangouts</a>
+      <p class="eyebrow">MAKE A PLAN</p>
+      <h1>Create a Hangout</h1>
+      <p class="muted">Your event will be saved to the shared PingUs database and visible to other users.</p>
+
+      <form id="hangoutForm" class="form-grid">
+        <label>Title <span>*</span><input id="title" required maxlength="70" placeholder="e.g. Gaming Night"></label>
+        <label>Category <span>*</span>
+          <select id="category">
+            <option>Study</option><option>Gaming</option><option>Sports</option>
+            <option>Food</option><option>Art</option><option>Music</option><option>Other</option>
+          </select>
+        </label>
+        <div class="two-col">
+          <label>Date <span>*</span><input id="date" type="date" required></label>
+          <label>Time <span>*</span><input id="time" type="time" required></label>
+        </div>
+        <label>Location <span>*</span><input id="location" required maxlength="100" placeholder="e.g. UIT Student Center"></label>
+        <div class="two-col">
+          <label>Max people <span>*</span><input id="maxPeople" type="number" min="2" max="100" value="8" required></label>
+          <label>Cover image URL <small>(optional)</small><input id="imageUrl" type="url" placeholder="https://..."></label>
+        </div>
+        <label>Description<textarea id="description" rows="5" maxlength="400" placeholder="Tell people what to expect..."></textarea></label>
+        <button class="primary-btn full" type="submit">🚀 Publish Hangout</button>
+        <p id="formMessage" class="form-error"></p>
+      </form>
+    </section>
+
+    <aside class="preview-card">
+      <p class="eyebrow">LIVE PREVIEW</p>
+      <div id="preview"></div>
+    </aside>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/create.js"></script>
+</body>
+</html>

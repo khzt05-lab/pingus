@@ -1,0 +1,40 @@
+/* Theme & Accent Color Only */
+body.dark {
+  background-color: #121212 !important;
+  color: #ffffff !important;
+}
+
+body.dark .sidebar,
+body.dark .card,
+body.dark .settings-card,
+body.dark header {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+}
+
+.btn-save, .primary-btn, .nav-item.active {
+  background-color: var(--accent-color) !important;
+}
+/* Join၊ Login နှင့် Button များအားလုံး အရောင်ပြောင်းရန် */
+.btn-save, 
+.primary-btn, 
+.nav-item.active,
+.btn-join,
+.join-btn,
+.btn-login,
+.login-btn,
+.auth-btn,
+button:not(.color-dot) {
+  background-color: var(--accent-color) !important;
+  color: #ffffff !important;
+}
+
+/* Login Link/Text ဖြစ်နေပါက */
+.login-link, 
+a.login-btn {
+  color: var(--accent-color) !important;
+}
+/* active မဟုတ်သော nav item များကို မူလ background သို့ ပြန်ပို့ရန် */
+.nav-item:not(.active) {
+  background-color: transparent !important;
+}
